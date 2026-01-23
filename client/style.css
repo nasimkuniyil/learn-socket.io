@@ -24,21 +24,21 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-header{
+header {
     display: flex;
     gap: 15px;
     justify-content: space-between;
 }
 
 h1 {
-    font-size: xx-large;
+    font-size: x-large;
 }
 
 li {
     list-style: none;
 }
 
-.user-data{
+.user-data {
     display: flex;
     gap: 10px;
 }
@@ -58,6 +58,7 @@ li {
     text-align: center;
     color: var(--color-primary-dark);
     font-weight: 800;
+    margin: auto 0;
 }
 
 .chat-container {
@@ -71,7 +72,7 @@ li {
 
 .message {
     font-size: 15px;
-    margin: 10px;
+    margin: 18px;
     padding: 10px 15px;
     width: fit-content;
     max-width: 60%;
@@ -84,14 +85,13 @@ li {
     border-radius: 2px 12px 12px 12px;
 }
 
-.recieved-message[title]::before{
+.recieved-message[title]::before {
     content: attr(title);
     display: block;
     color: var(--color-primary-dark);
-    font-size: 13px;
+    font-size: 15px;
     margin-bottom: 3px;
-    border-bottom: 1px solid var(--color-surface);
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .send-message {
@@ -101,7 +101,7 @@ li {
     position: relative;
 }
 
-.welcome-message{
+.welcome-message {
     font-size: 13px;
     padding: 5px 10px;
     border-radius: 8px;
@@ -129,11 +129,11 @@ li {
     border: 1px solid var(--color-primary-dark);
 }
 
-.text-input::placeholder{
+.text-input::placeholder {
     color: #4755696c;
 }
 
-.text-input-disabled{
+.text-input-disabled {
     text-align: center;
     color: var(--color-text-secondary);
 }
@@ -168,13 +168,36 @@ li {
     transform: translate(3px);
 }
 
-.btn:disabled{
+.btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
     transition: none;
     transform: none;
     filter: none;
-    .send-icon{
+
+    .send-icon {
         transform: none;
+    }
+}
+
+@media screen and (max-width : 600px) {
+    h1 {
+        font-size: large;
+    }
+
+    .recieved-message[title]::before {
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .text-input {
+        font-size: 15px;
+    }
+
+    .message {
+        font-size: 13px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 8px 12px;
     }
 }

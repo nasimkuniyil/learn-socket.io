@@ -22,19 +22,20 @@ export const recieveMessage = (data, socket) => {
     li.innerText = data.text;
     li.classList.add('recieved-message', 'message');
     li.setAttribute("title", data.username)
-    document.querySelector('#messages').appendChild(li)
+    document.querySelector('#messages').appendChild(li);
 }
 
 export const welcomeMessage = (text, socket) => {
     console.log('hey : ', text);
     console.log('user id : ', socket.id)
     const li = document.createElement('p');
-    li.innerText = "welcome "+socket.id;
+    li.innerText = "welcome "+text;
     li.classList.add('welcome-message');
     document.querySelector('#messages').appendChild(li)
+    socket.emit('welcome', {username:localStorage.getItem('username')})
 }
 
 export const disableBtn = (e) => {
-    if (e.target.value) document.querySelector('#chat-send-btn').removeAttribute('disabled')
+    if (e.target.value.trim()) document.querySelector('#chat-send-btn').removeAttribute('disabled')
     else document.querySelector('#chat-send-btn').setAttribute('disabled', true);
 }
